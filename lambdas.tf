@@ -11,8 +11,7 @@ resource "aws_lambda_function" "addition" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "addition.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
-  depends_on = ["data.archive_file.lambdas"]
+  runtime          = "nodejs10.x"
 }
 
 resource "aws_lambda_function" "division" {
@@ -21,9 +20,7 @@ resource "aws_lambda_function" "division" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "division.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
-
-  depends_on = ["data.archive_file.lambdas"]
+  runtime          = "nodejs10.x"
 }
 
 resource "aws_lambda_function" "fetchAndCheck" {
@@ -32,9 +29,7 @@ resource "aws_lambda_function" "fetchAndCheck" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "fetchAndCheck.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
-
-  depends_on = ["data.archive_file.lambdas"]
+  runtime          = "nodejs10.x"
 }
 
 resource "aws_lambda_function" "insertInDB" {
@@ -43,7 +38,7 @@ resource "aws_lambda_function" "insertInDB" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "insertInDB.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
+  runtime          = "nodejs10.x"
 
   environment {
     variables = {
@@ -60,8 +55,7 @@ resource "aws_lambda_function" "multiplication" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "multiplication.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
-  depends_on = ["data.archive_file.lambdas"]
+  runtime          = "nodejs10.x"
 }
 
 resource "aws_lambda_function" "subtraction" {
@@ -70,7 +64,5 @@ resource "aws_lambda_function" "subtraction" {
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "subtraction.handler"
   source_code_hash = "${data.archive_file.lambdas.output_base64sha256}"
-  runtime          = "nodejs6.10"
-
-  depends_on = ["data.archive_file.lambdas"]
+  runtime          = "nodejs10.x"
 }

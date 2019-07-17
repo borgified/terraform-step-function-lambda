@@ -58,7 +58,7 @@ data "aws_iam_policy_document" "sfn_assume_role_policy_document" {
     principals {
       type = "Service"
       identifiers = [
-        "states.eu-west-1.amazonaws.com",
+        "states.amazonaws.com",
         "events.amazonaws.com"
       ]
     }
